@@ -109,28 +109,21 @@ message.channel.send(`**✅ The AntiBots Is __𝐎𝐍__ !**`)
  
  
  
-client.on('guildMemberAdd', member => {
-
-    const channel = member.guild.channels.find('welcome', '・نورت');
-  
-    const millis = new Date().getTime() - member.user.createdAt.getTime();
-    const now = new Date();
-    const createdAt = millis / 1000 / 60 / 60 / 24;
-
-
-
-
-  
-    const embed = new Discord.RichEmbed()
-    
-    .setColor("black")
-    .setDescription(`**تاريخ دخولك للدسكورد منذ ${createdAt.toFixed(0)} يوم**`)
-    .setAuthor(member.user.tag, member.user.avatarURL);
-    channel.sendEmbed(embed);
-
-  
+var prefix = "*";
+ 
+client.on("message", message => {
+ 
+            if (message.content.startsWith(prefix + "obc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' ');
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`);
+ message.delete();
+};    
 });
-
 
 
 
