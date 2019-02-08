@@ -111,7 +111,7 @@ message.channel.send(`**✅ The AntiBots Is __𝐎𝐍__ !**`)
  
 client.on('guildMemberAdd', member => {
 
-    const channel = member.guild.channels.find('name', '・text');
+    const channel = member.guild.channels.find('welcome', '・نورت');
   
     const millis = new Date().getTime() - member.user.createdAt.getTime();
     const now = new Date();
