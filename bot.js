@@ -109,22 +109,13 @@ message.channel.send(`**✅ The AntiBots Is __𝐎𝐍__ !**`)
  
  
  
-var prefix = "*";
- 
-client.on("message", message => {
- 
-            if (message.content.startsWith(prefix + "obc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' ');
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`);
- message.delete();
-};    
-});
+const bot = require('discord.js-musicbot-addon');
 
+bot.start(client, {
+  youtubeKey: "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8",
+  musichelp : "*help",
+ botPrefix : "*"
+});
 
 
 
