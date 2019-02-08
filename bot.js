@@ -88,27 +88,7 @@ msg.guild.createChannel(args.join(' '), 'voice');
 
  
  
-let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require antihack.json file
-client.on('message', message => {
-    if(message.content.startsWith(prefix + "antibots on")) {
-        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
-        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('**Sorry But You Dont Have Permission** `ADMINISTRATOR`' );
-antibots[message.guild.id] = {
-onoff: 'On',
-}
-message.channel.send(`**✅ The AntiBots Is __𝐎𝐍__ !**`)
-          fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-          }
- 
-        })
- 
- 
- 
+
 
 
  
