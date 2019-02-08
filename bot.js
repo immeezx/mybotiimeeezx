@@ -21,7 +21,7 @@ client.on('message', msg => {
 
 
 client.on('message', message => {
-var prefix = "m." // البريفكس
+var prefix = "*" // البريفكس
 if(message.content.startsWith(prefix +"info")){ // الامر
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** ❎ `)
 if(!message.channel.guild) return message.reply(' ');
