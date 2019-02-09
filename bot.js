@@ -511,6 +511,27 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
 
 
 
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var rebel= new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTimestamp()
+        .setTitle('``New Message in private``')
+        .setThumbnail(`${message.author.avatarURL}`)
+        .setDescription(`
+${message.content}
+`)
+        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
+    client.channels.get("542633299986743296").send({embed:rebel});
+    }
+});
+
+
+
+
+
+
 
 
 
